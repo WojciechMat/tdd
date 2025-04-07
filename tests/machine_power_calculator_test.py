@@ -35,3 +35,9 @@ class TestMachinePowerCalculator:
         assert round(calculator.GetPowerConsumption("Lathe", 2, False), 2) == 1.67
         assert round(calculator.GetPowerConsumption("Lathe", 10, False), 2) == 3.64
         assert round(calculator.GetPowerConsumption("Lathe", 100, False), 2) == 7.02
+
+    def test_energy_saving_mode(self, calculator: MachinePowerCalculator):
+        assert calculator.GetPowerConsumption("MillingMachine", 1, True) == 4.0
+        assert pytest.approx(calculator.GetPowerConsumption("Press", 1, True)) == 5.76
+        assert round(calculator.GetPowerConsumption("Lathe", 1, True), 2) == 0.84
+        assert calculator.GetPowerConsumption("MillingMachine", 10, True) == 40.0
