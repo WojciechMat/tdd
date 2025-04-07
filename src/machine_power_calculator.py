@@ -1,6 +1,5 @@
 import math
 
-
 class ArgumentException(Exception):
     pass
 
