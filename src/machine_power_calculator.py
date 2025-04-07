@@ -1,3 +1,5 @@
+import math
+
 class ArgumentException(Exception):
     pass
 
@@ -15,11 +17,14 @@ class MachinePowerCalculator:
         if duration <= 0:
             raise ArgumentException("Duration must be greater than zero")
 
-        valid_machine_types = ["MillingMachine", "Press", "Lathe"]
-        if machineType not in valid_machine_types:
-            raise ArgumentException("Invalid machine type")
-
         if machineType == "MillingMachine":
-            return 5.0
+            return 5.0 * duration
 
-        return 0.0
+        elif machineType == "Press":
+            return 7.2 * duration
+        
+        elif machineType == "Lathe":
+            return 3.5 * math.log10(duration + 1)
+
+        else:
+            raise ArgumentException("Invalid machine type")
