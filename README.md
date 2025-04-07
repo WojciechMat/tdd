@@ -1,0 +1,4 @@
+### Test
+```sh
+PYTHONPATH=. pytest
+```
