@@ -7,7 +7,7 @@ class MachinePowerCalculator:
         if not machineType:
             raise ArgumentException("Machine type cannot be empty")
             
-        if duration < 0:
+        if duration <= 0:
             raise ArgumentException("Duration must be greater than zero")
             
         valid_machine_types = ["MillingMachine", "Press", "Lathe"]
